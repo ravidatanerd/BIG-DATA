@@ -1,0 +1,8 @@
+SET hive.cli.print.header=true;
+SELECT COUNT(DISTINCT(Median_Household_Income_2016)) AS DistinctVal  FROM unemp_pov ;
+SELECT MIN(Median_Household_Income_2016) AS MinVal  FROM unemp_pov ;
+SELECT MAX(Median_Household_Income_2016) AS MaxVal  FROM unemp_pov ;
+SELECT AVG(Median_Household_Income_2016) AS AvgVal  FROM unemp_pov ;
+SELECT Count(Median_Household_Income_2016) AS Nullval  FROM unemp_pov WHERE Median_Household_Income_2016 is null  ;
+SELECT Count(Median_Household_Income_2016) AS Missinval  FROM unemp_pov WHERE Median_Household_Income_2016 Like''  ;
+SELECT Median_Household_Income_2016,(Median_Household_Income_2016/S.Suma)*100 AS PercentVal FROM unemp_pov JOIN (SELECT SUM(Median_Household_Income_2016) AS Suma FROM unemp_pov) AS S ORDER BY Median_Household_Income_2016 DESC LIMIT 10;

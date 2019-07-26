@@ -1,0 +1,8 @@
+SET hive.cli.print.header=true;
+SELECT COUNT(DISTINCT(POVALL_2016)) AS DistinctVal  FROM unemp_pov ;
+SELECT MIN(POVALL_2016) AS MinVal  FROM unemp_pov ;
+SELECT MAX(POVALL_2016) AS MaxVal  FROM unemp_pov ;
+SELECT AVG(POVALL_2016) AS AvgVal  FROM unemp_pov ;
+SELECT Count(POVALL_2016) AS Nullval  FROM unemp_pov WHERE POVALL_2016 is null  ;
+SELECT Count(POVALL_2016) AS Missinval  FROM unemp_pov WHERE POVALL_2016 Like''  ;
+SELECT POVALL_2016,(POVALL_2016)*100 AS PercentVal FROM unemp_pov JOIN (SELECT SUM(POVALL_2016) AS Suma FROM unemp_pov) AS S ORDER BY POVALL_2016 DESC LIMIT 10;

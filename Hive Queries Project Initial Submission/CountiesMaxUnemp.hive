@@ -1,0 +1,3 @@
+SET hive.cli.print.header=true; 
+SELECT L.State,L.Area_name,L.Unemployment_rate_2016 FROM unemp_pov AS L JOIN (SELECT Unemployment_rate_2016 FROM unemp_pov ORDER BY Unemployment_rate_2016 DESC LIMIT 10) AS R ON L.Unemployment_rate_2016=R.Unemployment_rate_2016 ;
+ 

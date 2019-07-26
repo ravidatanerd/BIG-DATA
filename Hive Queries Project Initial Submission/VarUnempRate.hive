@@ -1,0 +1,8 @@
+SET hive.cli.print.header=true;
+SELECT COUNT(DISTINCT(Unemployment_rate_2016)) AS DistinctVal  FROM unemp_pov ;
+SELECT MIN(Unemployment_rate_2016) AS MinVal  FROM unemp_pov ;
+SELECT MAX(Unemployment_rate_2016) AS MaxVal  FROM unemp_pov ;
+SELECT AVG(Unemployment_rate_2016) AS AvgVal  FROM unemp_pov ;
+SELECT Count(Unemployment_rate_2016) AS Nullval  FROM unemp_pov WHERE Unemployment_rate_2016 is null  ;
+SELECT Count(Unemployment_rate_2016) AS Missinval  FROM unemp_pov WHERE Unemployment_rate_2016 Like''  ;
+SELECT Unemployment_rate_2016,(Unemployment_rate_2016/S.Suma)*100 AS PercentVal FROM unemp_pov JOIN (SELECT SUM(Unemployment_rate_2016) AS Suma FROM unemp_pov) AS S ORDER BY Unemployment_rate_2016 DESC LIMIT 10;

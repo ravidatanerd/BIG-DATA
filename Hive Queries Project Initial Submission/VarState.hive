@@ -1,0 +1,4 @@
+SET hive.cli.print.header=true;
+SELECT Count(State) AS Nullval  FROM unemp_pov  WHERE State is null  ;
+SELECT Count(State) AS Missinval  FROM unemp_pov  WHERE State Like''  ;
+SELECT COUNT(DISTINCT(State)) AS DistinctVal  FROM unemp_pov ;

@@ -1,0 +1,8 @@
+SET hive.cli.print.header=true;
+SELECT COUNT(DISTINCT(Civilian_labor_force_2016)) AS DistinctVal  FROM unemp_pov ;
+SELECT MIN(Civilian_labor_force_2016) AS MinVal  FROM unemp_pov ;
+SELECT MAX(Civilian_labor_force_2016) AS MaxVal  FROM unemp_pov ;
+SELECT AVG(Civilian_labor_force_2016) AS AvgVal  FROM unemp_pov ;
+SELECT Count(Civilian_labor_force_2016) AS Nullval  FROM unemp_pov WHERE Civilian_labor_force_2016 is null  ;
+SELECT Count(Civilian_labor_force_2016) AS Missinval  FROM unemp_pov WHERE Civilian_labor_force_2016 Like''  ;
+SELECT Civilian_labor_force_2016,(Civilian_labor_force_2016/S.Suma)*100 AS PercentVal FROM unemp_pov JOIN (SELECT SUM(Civilian_labor_force_2016) AS Suma FROM unemp_pov) AS S ORDER BY Civilian_labor_force_2016 DESC LIMIT 10;

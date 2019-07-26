@@ -1,0 +1,4 @@
+SET hive.cli.print.header=true; 
+SELECT Count(Metro_2013) AS Nullval  FROM unemp_pov  WHERE Metro_2013 is null  ;
+SELECT Count(Metro_2013) AS Missinval  FROM unemp_pov  WHERE Metro_2013 Like''  ;
+SELECT COUNT(DISTINCT(Metro_2013)) AS DistinctVal  FROM unemp_pov ;

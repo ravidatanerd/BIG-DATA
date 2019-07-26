@@ -1,0 +1,20 @@
+DROP TABLE IF EXISTS unemp_pov;
+
+CREATE TABLE unemp_pov(
+        FIPStxt INT,
+        State STRING,
+        Area_name STRING,
+		Metro_2013 INT,
+		Civilian_labor_force_2016 INT,
+		Employed_2016 INT,
+		Unemployed_2016 INT,
+		Unemployment_rate_2016 DECIMAL(3,1),
+		Median_Household_Income_2016 BIGINT,
+		POVALL_2016 BIGINT,
+		CI90LBAll_2016 BIGINT,
+		CI90UBALL_2016 BIGINT)
+		ROW FORMAT DELIMITED
+		FIELDS TERMINATED BY ',';
+
+LOAD DATA LOCAL INPATH 'withoutheader.csv' OVERWRITE INTO TABLE unemp_pov;
+

@@ -1,0 +1,2 @@
+SET hive.cli.print.header=true;
+SELECT * FROM (SELECT State, count(*) AS FRQ From   unemp_pov Group By State) AS T  ORDER BY T.FRQ DESC LIMIT 10;

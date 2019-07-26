@@ -1,0 +1,4 @@
+SET hive.cli.print.header=true;
+SELECT Count(Area_name) AS Nullval  FROM unemp_pov  WHERE Area_name is null  ;
+SELECT Count(Area_name) AS Missinval  FROM unemp_pov  WHERE Area_name Like''  ;
+SELECT COUNT(DISTINCT(Area_name)) AS DistinctVal  FROM unemp_pov ;
